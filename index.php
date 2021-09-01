@@ -67,11 +67,12 @@ function mc_mudtcl_fix_dt_connections( $target_id ) {
 	switch_to_blog( $target_id );
 	// Search through site for distributed posts
 
-	$args              = array(
+	$args = array(
 		'meta_key'       => 'dt_original_blog_id',
 		'post_type'      => 'any',
 		'posts_per_page' => - 1,
 	);
+
 	$posts_query       = new WP_Query( $args );
 	$distributed_posts = $posts_query->posts;
 
@@ -118,10 +119,11 @@ function mudtcl_admin_page() {
 		'network/settings.php?page=mc_wp_mu-dt-clone%2Findex.php' );
 	?>
     <div class="wrap">
-        <h2>Distributor Multisite cloning Fixer</h2>
+        <h2>Distributor Multisite cloning fixer</h2>
         <p>Since an original site would not know about any Distributor connections in the duplicate of a site
             containing connections, <br> this fix connects the original with the latest created clone.</p>
-        <p>This manual fix is only needed, when installing this plugin after sites where already cloned.</p>
+        <p>This manual fix is only needed, when installing this plugin after sites where already cloned.<br/>
+            New sites will be connected automatically after cloning (for all supported 3rd party plugins).</p>
         <form action="<?php echo $plugin_url ?>" method="POST">
             <table class="form-table">
                 <tr>
@@ -143,7 +145,7 @@ function mudtcl_admin_page() {
                 </tr>
             </table>
             <p class="submit">
-                <input type="submit" class="button button-primary" value="Fix it">
+                <input type="submit" class="button button-primary" value="Fix connections">
             </p>
         </form>
     </div>
@@ -151,7 +153,7 @@ function mudtcl_admin_page() {
 
 	if ( isset( $_POST['latest'] ) && $_SERVER['REQUEST_METHOD'] == "POST" ) {
 		if ( mc_mudtcl_fix_dt_connections( $_POST['latest'] ) ) {
-			echo "Fix succesfully executed.";
+			echo "Fix successfully executed. All connections updated.";
 		} else {
 			echo "There was an error executing the fix.";
 		}

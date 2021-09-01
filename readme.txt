@@ -1,21 +1,20 @@
 === Extension for Distributor - Multisite Cloner ===
 Contributors: milkycode
-Tags: distributor, multisite cloner, ns cloner
+Tags: distributor, multisite cloner, ns cloner, wp ultimo, synchronization, sync
 Requires at least: 4.0.0
 Tested up to:  5.8.0
-Stable tag: trunk
+Stable tag: master
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Fixes integration between cloned sites and the Distributor plugin.
-
 == Description ==
 
-Since an original site would not know about any Distributor connections
-in the duplicate of a site containing connections, this plugin connects the
-original with the latest created clone.
+Fixes integration between cloned sites and the Distributor plugin.
 
-= Compatibility =
+Since an original site would not know about any Distributor connections in the duplicate of a site containing
+connections, this plugin connects the original with the latest created clone.
+
+== Compatibility ==
 
 This plugin is compatible with:
 
@@ -35,6 +34,7 @@ This plugin is compatible with:
 * Added support for NS Cloner.
 * Added support for WP Ultimo.
 * Tested functionality on WordPress version 5.8.0.
+* Code refactoring
 
 = 1.2.1 =
 * Tested functionality on WordPress version 5.5.2. Changed plugin page location to be in a Multisite Settings subpage.
